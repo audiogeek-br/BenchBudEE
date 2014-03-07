@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:BenchBuddy
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -34,9 +35,9 @@ EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 9
+Sheet 9 9
 Title ""
-Date "5 mar 2014"
+Date "7 mar 2014"
 Rev ""
 Comp ""
 Comment1 ""
@@ -44,16 +45,16 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 9800 3350 0    60   Output ~ 0
-Power+
-Text HLabel 9800 3650 0    60   Input ~ 0
-Power-
-Text HLabel 9750 3900 0    60   Input ~ 0
-Tach
-Text HLabel 1300 4300 0    60   Output ~ 0
-Tach_OUT
+Text HLabel 9800 2000 2    60   Output ~ 0
+Fan_Out+
+Text HLabel 9800 2150 2    60   Output ~ 0
+Fan_Out-
+Text HLabel 9800 6150 2    60   Input ~ 0
+Tach_In
+Text HLabel 1250 6150 0    60   Output ~ 0
+Tach_MEASURE
 Text HLabel 1300 4050 0    60   Input ~ 0
-Fan_IN
+FAN_PWM
 $Comp
 L LM324 U?
 U 1 1 5315125A
@@ -74,17 +75,6 @@ F 1 "MOSFET_N" H 7560 2400 60  0000 R CNN
 F 2 "~" H 7550 2550 60  0000 C CNN
 F 3 "~" H 7550 2550 60  0000 C CNN
 	1    7550 2550
-	1    0    0    -1  
-$EndComp
-$Comp
-L +12V #PWR?
-U 1 1 531512F4
-P 7650 1950
-F 0 "#PWR?" H 7650 1900 20  0001 C CNN
-F 1 "+12V" H 7650 2050 30  0000 C CNN
-F 2 "" H 7650 1950 60  0000 C CNN
-F 3 "" H 7650 1950 60  0000 C CNN
-	1    7650 1950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -132,17 +122,6 @@ F 3 "" H 6100 3150 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L R R?
-U 1 1 53151457
-P 4650 2150
-F 0 "R?" V 4730 2150 40  0000 C CNN
-F 1 "R" V 4657 2151 40  0000 C CNN
-F 2 "~" V 4580 2150 30  0000 C CNN
-F 3 "~" H 4650 2150 30  0000 C CNN
-	1    4650 2150
-	1    0    0    -1  
-$EndComp
-$Comp
 L +12V #PWR?
 U 1 1 53151465
 P 4650 1650
@@ -156,22 +135,9 @@ $EndComp
 Wire Wire Line
 	6700 2550 7350 2550
 Wire Wire Line
-	7650 1950 7650 2350
-Wire Wire Line
-	7650 2750 7650 3350
-Wire Wire Line
-	7650 3350 9800 3350
-Wire Wire Line
-	5550 3650 9800 3650
-Wire Wire Line
-	7650 3650 7650 4100
-Wire Wire Line
 	7650 4600 7650 4900
 Wire Wire Line
-	5550 3650 5550 2650
-Wire Wire Line
 	5550 2650 5700 2650
-Connection ~ 7650 3650
 Wire Wire Line
 	6100 3150 6100 2950
 Wire Wire Line
@@ -180,74 +146,25 @@ Wire Wire Line
 	4650 1650 4650 1900
 Wire Wire Line
 	4400 2450 5700 2450
-Wire Wire Line
-	4650 2400 4650 3000
-Connection ~ 4650 2450
-$Comp
-L POT RV?
-U 1 1 531514B9
-P 4650 3250
-F 0 "RV?" H 4650 3150 50  0000 C CNN
-F 1 "POT" H 4650 3250 50  0000 C CNN
-F 2 "~" H 4650 3250 60  0000 C CNN
-F 3 "~" H 4650 3250 60  0000 C CNN
-	1    4650 3250
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	4650 3500 4650 3850
 $Comp
 L AGND #PWR?
 U 1 1 53151500
-P 4650 3850
-F 0 "#PWR?" H 4650 3850 40  0001 C CNN
-F 1 "AGND" H 4650 3780 50  0000 C CNN
-F 2 "" H 4650 3850 60  0000 C CNN
-F 3 "" H 4650 3850 60  0000 C CNN
-	1    4650 3850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8200 3900 9750 3900
-Text HLabel 1300 4150 0    60   Input ~ 0
-Current Measure
-Wire Wire Line
-	1300 4150 5650 4150
-Connection ~ 7650 4000
-$Comp
-L R R?
-U 1 1 5315166D
 P 5200 3250
-F 0 "R?" V 5280 3250 40  0000 C CNN
-F 1 "R" V 5207 3251 40  0000 C CNN
-F 2 "~" V 5130 3250 30  0000 C CNN
-F 3 "~" H 5200 3250 30  0000 C CNN
+F 0 "#PWR?" H 5200 3250 40  0001 C CNN
+F 1 "AGND" H 5200 3180 50  0000 C CNN
+F 2 "" H 5200 3250 60  0000 C CNN
+F 3 "" H 5200 3250 60  0000 C CNN
 	1    5200 3250
 	1    0    0    -1  
 $EndComp
+Text HLabel 1300 4150 0    60   Input ~ 0
+CURR_MEAS
 Wire Wire Line
-	1300 4050 4950 4050
+	5650 4150 1300 4150
 Wire Wire Line
-	4950 4050 4950 3650
+	5650 3800 5650 4150
 Wire Wire Line
-	4950 3650 5200 3650
-Wire Wire Line
-	5200 3650 5200 3550
-Wire Wire Line
-	5200 3000 5200 2450
-Connection ~ 5200 2450
-Wire Wire Line
-	5650 4150 5650 4000
-Wire Wire Line
-	1300 4300 5650 4300
-Wire Wire Line
-	5650 4300 5650 5200
-Wire Wire Line
-	5650 5200 8200 5200
-Wire Wire Line
-	8200 5200 8200 3900
-Wire Wire Line
-	5650 4000 7650 4000
+	1250 6150 9800 6150
 $Comp
 L MCP4922-E/P U?
 U 1 1 531517BB
@@ -286,20 +203,113 @@ Wire Wire Line
 	2450 2500 1300 2500
 Wire Wire Line
 	2450 2600 1300 2600
+Wire Wire Line
+	2450 2800 2450 4050
+Connection ~ 2450 4050
 $Comp
-L R R?
-U 1 1 5315191D
-P 2450 3350
-F 0 "R?" V 2530 3350 40  0000 C CNN
-F 1 "R" V 2457 3351 40  0000 C CNN
-F 2 "~" V 2380 3350 30  0000 C CNN
-F 3 "~" H 2450 3350 30  0000 C CNN
-	1    2450 3350
+L MOSFET_N Q?
+U 1 1 53191BE7
+P 7050 4350
+F 0 "Q?" H 7060 4520 60  0000 R CNN
+F 1 "MOSFET_N" H 7060 4200 60  0000 R CNN
+F 2 "~" H 7050 4350 60  0000 C CNN
+F 3 "~" H 7050 4350 60  0000 C CNN
+	1    7050 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L THERMISTOR TH?
+U 1 1 53191C1C
+P 7650 1350
+F 0 "TH?" V 7750 1400 50  0000 C CNN
+F 1 "THERMISTOR" V 7550 1350 50  0000 C CNN
+F 2 "~" H 7650 1350 60  0000 C CNN
+F 3 "~" H 7650 1350 60  0000 C CNN
+	1    7650 1350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2450 3100 2450 2800
+	7650 1100 7650 1000
 Wire Wire Line
-	2450 3600 2450 4050
-Connection ~ 2450 4050
+	7650 1600 7650 2000
+Wire Wire Line
+	7650 2000 9800 2000
+Wire Wire Line
+	9800 2150 7650 2150
+Wire Wire Line
+	7650 2150 7650 2350
+$Comp
+L DIODE D?
+U 1 1 53191C9A
+P 7450 2000
+F 0 "D?" H 7450 2100 40  0000 C CNN
+F 1 "DIODE" H 7450 1900 40  0000 C CNN
+F 2 "~" H 7450 2000 60  0000 C CNN
+F 3 "~" H 7450 2000 60  0000 C CNN
+	1    7450 2000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7450 2200 7650 2200
+Connection ~ 7650 2200
+Wire Wire Line
+	7450 1800 7650 1800
+Connection ~ 7650 1800
+Wire Wire Line
+	7650 2750 7650 4100
+Wire Wire Line
+	7150 4150 7150 3950
+Wire Wire Line
+	7150 3950 7650 3950
+Connection ~ 7650 3950
+Wire Wire Line
+	7150 4550 7150 4750
+Wire Wire Line
+	7150 4750 7650 4750
+Connection ~ 7650 4750
+Wire Wire Line
+	5650 3800 7650 3800
+Connection ~ 7650 3800
+Wire Wire Line
+	1300 4050 3800 4050
+Wire Wire Line
+	5550 3500 7650 3500
+Connection ~ 7650 3500
+Wire Wire Line
+	5550 3500 5550 2650
+$Comp
+L MOSFET_N Q?
+U 1 1 53191E78
+P 5100 2900
+F 0 "Q?" H 5110 3070 60  0000 R CNN
+F 1 "MOSFET_N" H 5110 2750 60  0000 R CNN
+F 2 "~" H 5100 2900 60  0000 C CNN
+F 3 "~" H 5100 2900 60  0000 C CNN
+	1    5100 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 3250 5200 3100
+Wire Wire Line
+	5200 2700 5200 2450
+Connection ~ 5200 2450
+Wire Wire Line
+	4900 2900 3800 2900
+Wire Wire Line
+	3800 2900 3800 4050
+Text HLabel 1300 4350 0    60   Input ~ 0
+FAN_MODE
+Wire Wire Line
+	1300 4350 6850 4350
+$Comp
+L +12C #PWR?
+U 1 1 53192305
+P 7650 1000
+F 0 "#PWR?" H 7650 970 30  0001 C CNN
+F 1 "+12C" H 7650 1110 40  0000 C CNN
+F 2 "~" H 7650 1000 60  0000 C CNN
+F 3 "~" H 7650 1000 60  0000 C CNN
+	1    7650 1000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:BenchBuddy
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -36,7 +37,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 9
 Title ""
-Date "5 mar 2014"
+Date "7 mar 2014"
 Rev ""
 Comp ""
 Comment1 ""

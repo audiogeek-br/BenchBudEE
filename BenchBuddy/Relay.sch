@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:BenchBuddy
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -34,9 +35,9 @@ EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 9
+Sheet 9 9
 Title ""
-Date "5 mar 2014"
+Date "7 mar 2014"
 Rev ""
 Comp ""
 Comment1 ""
@@ -45,13 +46,13 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Text HLabel 1550 3050 0    60   Input ~ 0
-DIN+
+RELAY+
 Text HLabel 1550 3400 0    60   Output ~ 0
-DIN-
+RELAY-
 Text HLabel 9450 1800 2    60   BiDi ~ 0
-NC
+RELAY_NC
 Text HLabel 9450 2000 2    60   BiDi ~ 0
-NO
+RELAY_NO
 $Comp
 L PHTRANS U?
 U 1 1 53162E90
@@ -108,7 +109,7 @@ F 3 "~" H 8700 1850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text HLabel 9500 1400 2    60   BiDi ~ 0
-COM
+RELAY_COM
 Wire Wire Line
 	9100 1800 9450 1800
 Wire Wire Line
